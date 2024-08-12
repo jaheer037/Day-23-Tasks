@@ -1,0 +1,17 @@
+db.student.find({},{name:true}); //returns all records with _id and name
+db.student.find({},{name:true,_id:false}); //returns all records with only name
+db.student.updateOne({name:"spongebob"},{$set:{fullTime:true}}) //modifies the record which matches with name:"spongebob"
+db.student.updateOne({_id:ObjectId("66b8552406397ea4b3e52f87")},{$unset:{fullTime:""}}) //$unset removes the particular record's column. It's reverse to $set
+db.student.updateMany({fullTime:{$exists:false}},{$set:{fullTime:true}})  //$exists operator=> if not existed, creates one and sets to true
+db.student.deleteOne({name:"zaheer"}) //deletes the record which matches with name:"zaheer"
+db.student.deleteMany({fullTime:false}) //deletes as many as records which matches with fullTime:flase
+db.student.find({name:{$ne:"spongebob"}}) // returns all the records which are not with name:"spongebob"
+db.student.find({gpa:{$gte:3.0,$lte:4.0}}) // $gte and $lte operators
+db.student.find({name:{$in:["spongebob","Patrick","Sandy"]}}) //$in operator
+db.student.find({$and:[{fullTime:true},{age:{$lte:22}}]}) //$and operator
+db.student.find({$or:[{fullTime:true},{age:{$lte:22}}]}) //$or operator
+db.student.find({$nor:[{fullTime:true},{age:{$lte:22}}]}) //$nor operator
+
+
+
+
