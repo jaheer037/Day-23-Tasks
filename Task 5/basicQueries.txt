@@ -1,0 +1,14 @@
+use ciet; //switches to db, if not exists creates db
+db.createCollection("student"); //creates a collection
+db.dropDatabase(); //drops database in which we are currently in.
+db.student.insertOne({name:"spongebob",age:30,gpa:3.2})
+db.student.find()
+db.student.insertMany([{name:"Patrick",age:38,gpa:1.5},{name:"Sandy",age:27,gpa:4.0},{name:"Gary",age:18,gpa:2.5}])
+db.student.insertOne({name:"Zaheer",age:20,gpa:4.0,fullTime:false,registerDate:new Date(),graduation:null,courses:["Math","AI","React"],address:{city:"Guntur",State:"AP"}})
+db.student.find().sort({age:1}) //returns data according to ascending order w.r.t age
+db.student.find().sort({age:-1}) //returns data according to descending order w.r.t age
+db.student.find().sort({name:1}) //returns data according to alphabetical order
+db.student.find().sort({name:-1}) //returns data according to reverse alphabetical order
+db.student.find().limit(3); //returns only first 3 records in collection
+db.student.find().sort({gpa:-1}).limit(1); //returns highest gpa person in collection
+db.student.find().sort({gpa:1}).limit(1); //returns lowest gpa person in collection
